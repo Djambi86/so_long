@@ -6,7 +6,7 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 15:41:08 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/10 18:18:49 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/10 18:34:35 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,11 @@ static void	count_components(t_map *map)
 			map->e_cnt++;
 		else if (map->buf[i] == 'P')
 			map->p_cnt++;
-		else if (map->buf[i] != 'C' || map->buf[i] != 'E' || map->buf[i] != 'P'
-			|| map->buf[i] != '1' || map->buf[i] != '0')
+		else if (map->buf[i] != 'C' && map->buf[i] != 'E' && map->buf[i] != 'P'
+			&& map->buf[i] != '1' && map->buf[i] != '0' && map->buf[i] != '\n'
+			&& map->buf[i] != '\r')
 		{
-			ft_printf("Invalid Character found!");
+			ft_printf("Invalid Character found!\n");
 			exit(1);
 		}
 		i++;
@@ -52,7 +53,7 @@ int	validate_counts(t_map *map)
 		ft_printf("No more or less than 1 Player please!\n");
 		return (0);
 	}
-	ft_printf("The map looks good!");
+	ft_printf("The map looks good!\n");
 	return (1);
 }
 
@@ -71,7 +72,7 @@ int	map_read(int fd)
 	}
 	if (map.r < 0)
 	{
-		perror("Error while reading map:");
+		perror("Error while reading map: ");
 		return (0);
 	}
 	return (validate_counts(&map));
