@@ -6,7 +6,7 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 20:44:19 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/14 21:44:32 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/14 22:04:24 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ int		map_read(t_map *map);
 void	validate_counts(t_map *map);
 void	rect_map(t_map *map);
 void	check_map(t_map *map);
-void	check_row(t_map *map, int *i);
+void	check_row(t_map *map);
 
 #endif

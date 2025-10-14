@@ -6,17 +6,40 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 19:11:08 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/14 21:50:07 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/14 22:08:47 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void	check_row(t_map *map, int *i)
+void	check_row(t_map *map)
 {
 	if (map->string[map->last_row] == '\n')
 	{	
-		
+		map->last_row--;
+		while (map->string[map->last_row] != '\n')
+		{
+			if (map->string[map->last_row] != '1')
+			{
+				ft_printf("Last row is not all Ones!\n");
+				free (map->string);
+				exit (0);
+			}
+			map->last_row--;
+		}
+	}
+	else
+	{
+		while (map->string[map->last_row] != '\n')
+		{
+			if (map->string[map->last_row] != '1')
+			{
+				ft_printf("Last row is not all Ones!\n");
+				free (map->string);
+				exit (0);
+			}
+			map->last_row--;
+		}
 	}
 }
 
@@ -26,11 +49,12 @@ void	check_map(t_map *map)
 
 	i = 0;
 	map->first_row = 0;
+	map->last_row = 0;
 	while (map->string[i] != '\n')
 	{
 		if (map->string[i] != '1')
 		{
-			ft_printf("First row is not all Ones\n");
+			ft_printf("First row is not all Ones!\n");
 			free (map->string);
 			exit(0);
 		}
@@ -39,7 +63,7 @@ void	check_map(t_map *map)
 	}
 	map->first_row--;
 	map->last_row = map->full_size - 1;
-	check_row(map, &i);	
+	check_row(map);	
 }
 
 void rect_map(t_map *map)
