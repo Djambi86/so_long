@@ -6,7 +6,7 @@
 #    By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/29 11:17:15 by dabdulka          #+#    #+#              #
-#    Updated: 2025/10/10 18:22:10 by dabdulka         ###   ########.fr        #
+#    Updated: 2025/10/14 20:06:43 by dabdulka         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ FTPRINTF_A  := include/ft_printf/libftprintf.a
 LIBFT_A		:= include/libft/libft.a
 
 # Project sources
-LIB_SRCS    := src/read_map.c
+LIB_SRCS    := src/read_map.c src/rect_map.c
 MAIN_SRC    := src/main.c
 
 LIB_OBJS    := $(LIB_SRCS:.c=.o)
