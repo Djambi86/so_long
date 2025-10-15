@@ -6,7 +6,7 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 20:44:19 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/14 22:04:24 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/15 13:58:11 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ typedef struct s_map
 	int		other_row;
 	int		last_row;
 }	t_map;
+
+
 
 int		map_read(t_map *map);
 void	validate_counts(t_map *map);
