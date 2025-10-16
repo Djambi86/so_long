@@ -6,7 +6,7 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 20:44:19 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/16 20:34:10 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/16 21:57:13 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,20 @@
 
 typedef struct s_map
 {
-	ssize_t	r;
-	int		c_cnt;
-	int		e_cnt;
-	int		p_cnt;
-	char	buf[BUF_SIZE];
-	char	*string;
-	int		fd;
-	int		full_size;
-	int		first_row;
-	int		other_row;
-	int		last_row;
+	ssize_t		r;
+	int			c_cnt;
+	int			e_cnt;
+	int			p_cnt;
+	char		buf[BUF_SIZE];
+	char		*string;
+	int			fd;
+	size_t		full_size;
+	size_t		first_row;
+	size_t		other_row;
+	size_t		last_row;
+	size_t		temp;
+	size_t		edges;
+	int			pos_p;
 }	t_map;
 
 int		map_read(t_map *map);

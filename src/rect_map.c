@@ -6,7 +6,7 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 19:11:08 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/16 20:33:11 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/16 21:30:33 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 void	check_last(t_map *map)
 {
-	int	len;
-
 	while (map->string[map->last_row] == '\n')
 		map->last_row--;
-	len = map->last_row - map->first_row;
+	map->temp = map->last_row;
 	while (map->string[map->last_row] != '\n')
 	{
 		if (map->string[map->last_row] != '1')
@@ -28,6 +26,18 @@ void	check_last(t_map *map)
 			exit(0);
 		}
 		map->last_row--;
+	}
+	map->last_row++;
+	while (map->first_row != map->temp)
+	{
+		if (map->string[map->first_row] != '1'
+			|| map->string[map->last_row] != '1')
+		{
+			printf("The middle ground ain't safe!\n");
+			exit (0);
+		}
+		map->first_row += (map->edges);
+		map->last_row -= (map->edges);
 	}
 }
 
@@ -51,6 +61,7 @@ void	check_first(t_map *map)
 	}
 	map->first_row--;
 	map->last_row = map->full_size - 1;
+	map->edges = map->first_row + 2;
 	check_last(map);
 }
 
