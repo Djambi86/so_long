@@ -6,7 +6,7 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 15:41:08 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/16 13:58:10 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/16 20:12:37 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,12 @@ int map_read(t_map *map)
 	map->p_cnt = 0;
 	map->full_size = 0;
 	map->r = read(map->fd, map->buf, BUF_SIZE);
-	map->full_size = BUF_SIZE;
+	map->full_size = map->r;
 	while (map->r > 0)
 	{
 		count_components(map);
 		map->r = read(map->fd, map->buf, BUF_SIZE);
-		map->full_size += BUF_SIZE;
+		map->full_size += map->r;
 	}
 	if (map->r < 0)
 	{
