@@ -6,15 +6,15 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 15:41:08 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/16 20:12:37 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/16 20:29:26 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-static void count_components(t_map *map)
+static void	count_components(t_map *map)
 {
-	ssize_t i;
+	ssize_t	i;
 
 	i = 0;
 	while (i < map->r)
@@ -25,7 +25,8 @@ static void count_components(t_map *map)
 			map->e_cnt++;
 		else if (map->buf[i] == 'P')
 			map->p_cnt++;
-		else if (map->buf[i] != 'C' && map->buf[i] != 'E' && map->buf[i] != 'P' && map->buf[i] != '1' && map->buf[i] != '0' && map->buf[i] != '\n')
+		else if (map->buf[i] != 'C' && map->buf[i] != 'E' && map->buf[i] != 'P'
+			&& map->buf[i] != '1' && map->buf[i] != '0' && map->buf[i] != '\n')
 		{
 			ft_printf("Invalid Character found!\n");
 			exit(0);
@@ -34,7 +35,7 @@ static void count_components(t_map *map)
 	}
 }
 
-void validate_counts(t_map *map)
+void	validate_counts(t_map *map)
 {
 	if (map->c_cnt < 1)
 	{
@@ -55,7 +56,7 @@ void validate_counts(t_map *map)
 	return ;
 }
 
-int map_read(t_map *map)
+int	map_read(t_map *map)
 {
 	map->c_cnt = 0;
 	map->e_cnt = 0;

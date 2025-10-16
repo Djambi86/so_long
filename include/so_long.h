@@ -6,7 +6,7 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 20:44:19 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/16 20:12:59 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/16 20:34:10 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_map
 	int		e_cnt;
 	int		p_cnt;
 	char	buf[BUF_SIZE];
-	char 	*string;
+	char	*string;
 	int		fd;
 	int		full_size;
 	int		first_row;
@@ -38,14 +38,12 @@ typedef struct s_map
 	int		last_row;
 }	t_map;
 
-
-
 int		map_read(t_map *map);
 void	validate_counts(t_map *map);
 void	rect_map(t_map *map);
 void	check_map(t_map *map);
 void	check_row(t_map *map);
-void 	map_dup(t_map *map, ssize_t bytes);
+void	map_dup(t_map *map, ssize_t bytes);
 int		is_ber(char *str);
 
 #endif

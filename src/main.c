@@ -6,17 +6,17 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:53:14 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/16 18:51:21 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/16 20:30:30 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
 int	is_ber(char *str)
-{	
-	int res;
-	const char *ber;
-	
+{
+	int			res;
+	const char	*ber;
+
 	ber = str;
 	ber = ft_strchr(ber, '.');
 	res = ft_strncmp(ber, ".ber", 4);
@@ -26,12 +26,11 @@ int	is_ber(char *str)
 		exit (0);
 	}
 	return (0);
-	
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_map map;
+	t_map	map;
 
 	if (argc != 2)
 	{
