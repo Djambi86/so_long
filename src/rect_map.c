@@ -6,44 +6,29 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 19:11:08 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/14 22:08:47 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/16 19:19:54 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void	check_row(t_map *map)
+void	check_last(t_map *map)
 {
 	if (map->string[map->last_row] == '\n')
-	{	
 		map->last_row--;
-		while (map->string[map->last_row] != '\n')
-		{
-			if (map->string[map->last_row] != '1')
-			{
-				ft_printf("Last row is not all Ones!\n");
-				free (map->string);
-				exit (0);
-			}
-			map->last_row--;
-		}
-	}
-	else
+	while (map->last_row < (map->last_row - map->first_row))
 	{
-		while (map->string[map->last_row] != '\n')
+		if (map->string[map->last_row] != '1')
 		{
-			if (map->string[map->last_row] != '1')
-			{
-				ft_printf("Last row is not all Ones!\n");
-				free (map->string);
-				exit (0);
-			}
-			map->last_row--;
+			ft_printf("Last row is not all Ones!\n");
+			free(map->string);
+			exit(0);
 		}
+		map->last_row--;
 	}
 }
 
-void	check_map(t_map *map)
+void	check_first(t_map *map)
 {
 	int	i;
 
@@ -63,20 +48,15 @@ void	check_map(t_map *map)
 	}
 	map->first_row--;
 	map->last_row = map->full_size - 1;
-	check_row(map);	
+	check_last(map);	
 }
 
-void rect_map(t_map *map)
+void map_dup(t_map *map, ssize_t bytes)
 {
-	int i;
-	int j;
-	ssize_t bytes;
-
-	map->string = (char *)malloc(sizeof(char) * (map->full_size + 1));
-	if (!map->string)
-		return;
+	int	i;
+	int	j;
+	
 	j = 0;
-	bytes = read(map->fd, map->buf, BUF_SIZE);
 	while (bytes > 0)
 	{
 		map->buf[bytes] = '\0';
@@ -95,7 +75,18 @@ void rect_map(t_map *map)
 		perror("Error while reading map: ");
 		return;
 	}
+}
+
+void rect_map(t_map *map)
+{
+	ssize_t bytes;
+
+	map->string = ft_calloc((map->full_size + 1), sizeof(char));
+	if (!map->string)
+		return;
 	map->string[map->full_size] = '\0';
-	check_map(map);
+	bytes = read(map->fd, map->buf, BUF_SIZE);
+	map_dup(map, bytes);
+	check_first(map);
 	ft_printf("Result meines string: \n%s", map->string);
 }

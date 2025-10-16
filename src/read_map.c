@@ -6,7 +6,7 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 15:41:08 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/14 20:31:19 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/16 13:58:10 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void count_components(t_map *map)
 		else if (map->buf[i] != 'C' && map->buf[i] != 'E' && map->buf[i] != 'P' && map->buf[i] != '1' && map->buf[i] != '0' && map->buf[i] != '\n')
 		{
 			ft_printf("Invalid Character found!\n");
-			exit(1);
+			exit(0);
 		}
 		i++;
 	}
@@ -39,17 +39,17 @@ void validate_counts(t_map *map)
 	if (map->c_cnt < 1)
 	{
 		ft_printf("No collectibles in sight, give me collectibles!\n");
-		return ;
+		exit (0);
 	}
 	else if (map->e_cnt != 1)
 	{
 		ft_printf("No more or less than 1 Exit please!\n");
-		return ;
+		exit (0);
 	}
 	else if (map->p_cnt != 1)
 	{
 		ft_printf("No more or less than 1 Player please!\n");
-		return ;
+		exit (0);
 	}
 	ft_printf("All characters found! :)\n");
 	return ;
@@ -72,7 +72,7 @@ int map_read(t_map *map)
 	if (map->r < 0)
 	{
 		perror("Error while reading map: ");
-		return (0);
+		exit(0);
 	}
 	validate_counts(map);
 	return (map->full_size);
