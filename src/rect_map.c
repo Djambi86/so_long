@@ -6,7 +6,7 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 19:11:08 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/16 21:30:33 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/17 19:11:12 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,28 @@ void	check_last(t_map *map)
 		map->last_row--;
 	}
 	map->last_row++;
+	if (map->last_row != (map->temp - map->first_row))
+	{
+		ft_printf("NUH UH!\n");
+		free(map->string);
+		exit (0);
+	}
+	check_middle(map);
+}
+
+void	check_middle(t_map *map)
+{
 	while (map->first_row != map->temp)
 	{
 		if (map->string[map->first_row] != '1'
 			|| map->string[map->last_row] != '1')
 		{
-			printf("The middle ground ain't safe!\n");
+			ft_printf("NUH UH!\n");
+			free(map->string);
 			exit (0);
 		}
-		map->first_row += (map->edges);
-		map->last_row -= (map->edges);
+		map->first_row += map->edges;
+		map->last_row -= map->edges;
 	}
 }
 
@@ -73,22 +85,20 @@ void	map_dup(t_map *map, ssize_t bytes)
 	j = 0;
 	while (bytes > 0)
 	{
-		map->buf[bytes] = '\0';
 		i = 0;
-		while (map->buf[i])
+		while (i < bytes)
 		{
-			map->string[j] = map->buf[i];
-			i++;
-			j++;
+			map->string[j++] = map->buf[i++];
 		}
 		bytes = read(map->fd, map->buf, BUF_SIZE);
+		if (bytes < 0)
+		{
+			free(map->string);
+			perror("Error while reading map: ");
+			return ;
+		}
 	}
-	if (bytes < 0)
-	{
-		free(map->string);
-		perror("Error while reading map: ");
-		return ;
-	}
+	map->string[j] = '\0';
 }
 
 void	rect_map(t_map *map)

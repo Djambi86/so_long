@@ -6,7 +6,7 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 20:44:19 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/16 21:57:13 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/17 18:02:32 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include "../include/ft_printf/ft_printf.h"
 # include "../include/libft/libft.h"
 
-# define BUF_SIZE 1024
+# define BUF_SIZE 4000
 
 typedef struct s_map
 {
@@ -48,5 +48,6 @@ void	check_map(t_map *map);
 void	check_row(t_map *map);
 void	map_dup(t_map *map, ssize_t bytes);
 int		is_ber(char *str);
+void	check_middle(t_map *map);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:53:14 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/16 20:30:30 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/17 19:07:39 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	is_ber(char *str)
 
 	ber = str;
 	ber = ft_strchr(ber, '.');
+	if (!ber)
+		return (0);
 	res = ft_strncmp(ber, ".ber", 4);
 	if (res > 0 || res < 0)
 	{
