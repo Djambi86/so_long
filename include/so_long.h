@@ -6,7 +6,7 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 20:44:19 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/17 18:02:32 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/18 15:56:35 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <fcntl.h>
-# include <mlx.h>
+//# include <mlx.h>
+# include "../minilibx-linux/mlx.h"
 # include <unistd.h>
 # include "../include/ft_printf/ft_printf.h"
 # include "../include/libft/libft.h"
