@@ -16,8 +16,8 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <fcntl.h>
-//# include <mlx.h>
-# include "../minilibx-linux/mlx.h"
+# include <mlx.h>
+//# include "../minilibx-linux/mlx.h"
 # include <unistd.h>
 # include "../include/ft_printf/ft_printf.h"
 # include "../include/libft/libft.h"

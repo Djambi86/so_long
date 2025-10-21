@@ -10,59 +10,49 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME        := so_long
+NAME        = so_long
+CC          = cc
+CFLAGS      = -Wall -Wextra -Werror
 
-CC          := cc
-CFLAGS      := -Wall -Wextra -Werror -g
-AR          := ar rcs
-RM          := rm -f
+SRC         = src/read_map.c src/rect_map.c src/main.c
+OBJ         = $(SRC:.c=.o)
 
-# External libs to build first
-LIB_DIRS    := include/ft_printf include/libft
-FTPRINTF_A  := include/ft_printf/libftprintf.a
-LIBFT_A		:= include/libft/libft.a
+FT_PRINTF_DIR = include/ft_printf
+LIBFT_DIR = include/libft
 
-# Project sources
-LIB_SRCS    := src/read_map.c src/rect_map.c
-MAIN_SRC    := src/main.c
+FT_PRINTF_LIB = $(FT_PRINTF_DIR)/libftprintf.a
+LIBFT_LIB = $(LIBFT_DIR)/libft.a
+LIBS        = $(FT_PRINTF_LIB) $(LIBFT_LIB)
 
-LIB_OBJS    := $(LIB_SRCS:.c=.o)
-MAIN_OBJ    := $(MAIN_SRC:.c=.o)
+all: $(NAME)
 
-# **************************************************************************** #
-#                                   RULES                                       #
-# **************************************************************************** #
+$(NAME): $(OBJ) $(LIBS)
+	@echo "linking $(NAME)"
+	$(CC) $(CFLAGS) $(OBJ) $(LIBS) -o $(NAME)
+	@echo "$(NAME) created successfully!"
 
-all: libs $(NAME)
+$(FT_PRINTF_LIB):
+	@$(MAKE) -C $(FT_PRINTF_DIR) --no-print-directory
 
-# Build sub-libraries first
-libs:
-	@for dir in $(LIB_DIRS); do \
-		$(MAKE) -C $$dir; \
-	done
+$(LIBFT_LIB):
+	@$(MAKE) -C $(LIBFT_DIR) --no-print-directory
 
-# Link the final executable (NOW includes your objects!)
-$(NAME): $(MAIN_OBJ) $(LIB_OBJS)
-	$(CC) $(CFLAGS) $(MAIN_OBJ) $(LIB_OBJS) $(FTPRINTF_A) $(LIBFT_A) -o $(NAME)
-
-# Compile rules
-%.o: %.c so_long.h
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Housekeeping
 clean:
-	$(RM) $(LIB_OBJS) $(MAIN_OBJ)
-	@for dir in $(LIB_DIRS); do \
-		$(MAKE) -C $$dir clean; \
-	done
+	rm -f $(OBJ)
+	@$(MAKE) -C $(FT_PRINTF_DIR) --no-print-directory clean
+	@$(MAKE) -C $(LIBFT_DIR) --no-print-directory clean
 
 fclean: clean
-	$(RM) $(NAME)
-	@for dir in $(LIB_DIRS); do \
-		$(MAKE) -C $$dir fclean; \
-	done
+	rm -f $(NAME)
+	@$(MAKE) -C $(FT_PRINTF_DIR) --no-print-directory fclean
+	@$(MAKE) -C $(LIBFT_DIR) --no-print-directory fclean
 
 re: fclean all
 
-.PHONY: all libs clean fclean re
+libs: $(LIBS)
+
+.PHONY: all clean fclean re libs
 
