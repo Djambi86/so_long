@@ -6,7 +6,7 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:53:14 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/23 19:09:12 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/23 19:25:02 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	is_ber(char *str)
 int	main(int argc, char **argv)
 {
 	t_map	map;
+	t_game	game;
 
 	if (argc != 2)
 	{
@@ -54,5 +55,6 @@ int	main(int argc, char **argv)
 		return (0);
 	rect_map(&map);
 	close(map.fd);
+	create_graphic(&game);
 	free(map.string);
 }

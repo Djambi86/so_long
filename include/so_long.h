@@ -6,7 +6,7 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 20:44:19 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/23 16:56:40 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/23 19:31:35 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,12 @@ typedef struct s_map
 	size_t		edges;
 }	t_map;
 
+typedef struct	s_game
+{
+	void	*mlx;
+	void	*win;
+}	t_game;
+
 int		map_read(t_map *map);
 void	validate_counts(t_map *map);
 void	rect_map(t_map *map);
@@ -52,5 +58,6 @@ void	check_middle(t_map *map);
 void	flood_fill_init(t_map *map);
 void	flood_fill(int i, char *str_copy, t_map *map);
 void	check_leftover(char *str_copy, char *str);
+void	create_graphic(t_game *game);
 
 #endif
