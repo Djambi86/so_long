@@ -6,7 +6,7 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 19:11:08 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/18 17:14:36 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/23 18:27:59 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,5 +111,5 @@ void	rect_map(t_map *map)
 	bytes = read(map->fd, map->buf, BUF_SIZE);
 	map_dup(map, bytes);
 	check_first(map);
-	ft_printf("Result meines string: \n%s", map->string);
+	flood_fill_init(map);
 }

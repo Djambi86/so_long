@@ -24,7 +24,7 @@ int	is_ber(char *str)
 	res = ft_strncmp(ber, ".ber", 4);
 	if (res > 0 || res < 0)
 	{
-		ft_printf("This ain't a .ber file handsome person!");
+		ft_printf("This ain't a .ber file handsome person!\n");
 		exit (0);
 	}
 	return (0);
@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		ft_printf("please put in a map, and only a map");
+		ft_printf("please put in a map, and only a map\n");
 		return (0);
 	}
 	is_ber(argv[1]);

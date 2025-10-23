@@ -6,7 +6,7 @@
 #    By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/29 11:17:15 by dabdulka          #+#    #+#              #
-#    Updated: 2025/10/14 20:06:43 by dabdulka         ###   ########.fr        #
+#    Updated: 2025/10/23 15:49:33 by dabdulka         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME        = so_long
 CC          = cc
 CFLAGS      = -Wall -Wextra -Werror
 
-SRC         = src/read_map.c src/rect_map.c src/main.c
+SRC         = src/read_map.c src/rect_map.c src/main.c src/flood_fill.c
 OBJ         = $(SRC:.c=.o)
 
 FT_PRINTF_DIR = include/ft_printf

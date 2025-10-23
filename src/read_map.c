@@ -6,7 +6,7 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 15:41:08 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/16 21:57:36 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/23 15:31:15 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,7 @@ static void	count_components(t_map *map)
 		else if (map->buf[i] == 'E')
 			map->e_cnt++;
 		else if (map->buf[i] == 'P')
-		{
 			map->p_cnt++;
-			map->pos_p = i;
-		}
 		else if (map->buf[i] != 'C' && map->buf[i] != 'E' && map->buf[i] != 'P'
 			&& map->buf[i] != '1' && map->buf[i] != '0' && map->buf[i] != '\n')
 		{
