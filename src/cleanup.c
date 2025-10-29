@@ -6,7 +6,7 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:56:11 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/29 18:31:55 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/29 20:50:50 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	destroy_textures(t_game *g)
 		mlx_destroy_image(g->mlx, g->ex.player.ptr);
 }
 
-int	on_destroy(t_game *g)
+void	on_destroy(t_game *g)
 {
 	destroy_textures(g);
 	if (g->win)
@@ -38,5 +38,17 @@ int	on_destroy(t_game *g)
 	if (g->map && g->map->string)
 		free(g->map->string);
 	exit(0);
-	return (0);
+}
+
+void	on_destroy_small(t_game *g)
+{
+	if (g->win)
+	{
+		mlx_destroy_window(g->mlx, g->win);
+		mlx_destroy_display(g->mlx);
+		free(g->mlx);
+	}
+	if (g->map && g->map->string)
+		free(g->map->string);
+	exit(0);
 }

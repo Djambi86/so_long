@@ -6,7 +6,7 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 20:44:19 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/29 18:26:28 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/29 20:13:52 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 # define KEY_S 115
 # define KEY_D 100
 
-typedef struct	s_map
+typedef struct s_map
 {
 	ssize_t		r;
 	int			c_cnt;
@@ -52,14 +52,14 @@ typedef struct	s_map
 	int			coins_left;
 }	t_map;
 
-typedef struct	s_img
+typedef struct s_img
 {
 	void	*ptr;
 	int		w;
 	int		h;
 }	t_img;
 
-typedef struct	s_textures
+typedef struct s_textures
 {
 	t_img	wall;
 	t_img	floor;
@@ -68,7 +68,7 @@ typedef struct	s_textures
 	t_img	player;
 }	t_textures;
 
-typedef struct	s_game
+typedef struct s_game
 {
 	void		*mlx;
 	void		*win;
@@ -90,12 +90,12 @@ void	check_middle(t_map *map);
 void	flood_fill_init(t_map *map);
 void	flood_fill(int i, char *str_copy, t_map *map);
 void	check_leftover(char *str_copy, char *str);
-//void	create_graphic(t_game *game);
 void	check_leftover(char *str_copy, char *str);
 void	free_and_exit_string_map(char *a, char *b);
 void	map_finalize_dims_and_player(t_map *m, int *px, int *py);
 void	game_start(t_game *g, t_map *m);
-int		on_destroy(t_game *g);
+void	on_destroy(t_game *g);
+void	on_destroy_small(t_game *g);
 int		on_key(int key, t_game *g);
 void	render_all(t_game *g);
 char	map_at(t_map *m, int x, int y);

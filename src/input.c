@@ -6,7 +6,7 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:47:44 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/29 18:47:48 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/29 20:49:29 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ int	try_move(t_game *g, int dx, int dy)
 
 static int	i_hate_25lines_may_it_vanish(t_game *g, int nx, int ny, char t)
 {
-	if (t == 'E')
-		return (0);
 	if (t == 'C')
 	{
 		g->map->coins_left--;

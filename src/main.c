@@ -6,7 +6,7 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:53:14 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/29 18:19:00 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/29 20:39:05 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	is_ber(char *str)
 	if (str[1] == '.')
 	{
 		ft_printf("NUH HU, I don't want a hidden file!\n");
-		exit(0);
+		exit (0);
 	}
 	str = ft_strchr(str, '.');
 	res = ft_strncmp(str, ".ber", 4);
@@ -31,7 +31,7 @@ int	is_ber(char *str)
 		ft_printf("This ain't a .ber file handsome person!\n");
 		exit (0);
 	}
-	return (0);
+	return (1);
 }
 
 int	main(int argc, char **argv)
