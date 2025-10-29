@@ -6,13 +6,13 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 16:49:02 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/23 18:28:09 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/28 17:03:33 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-static void	free_and_exit(char *a, char *b)
+void	free_and_exit_string_map(char *a, char *b)
 {
 	if (a)
 		free(a);
@@ -60,17 +60,17 @@ void	check_leftover(char *str_copy, char *str)
 		if (str_copy[i] == 'E')
 		{
 			ft_printf("You little trickster, the E is closed off :(!\n");
-			free_and_exit(str_copy, str);
+			free_and_exit_string_map(str_copy, str);
 		}
 		else if (str_copy[i] == 'P')
 		{
 			ft_printf("You little trickster, the P is closed off :(!\n");
-			free_and_exit(str_copy, str);
+			free_and_exit_string_map(str_copy, str);
 		}
 		else if (str_copy[i] == 'C')
 		{
 			ft_printf("You little trickster, the C is closed off :(!\n");
-			free_and_exit(str_copy, str);
+			free_and_exit_string_map(str_copy, str);
 		}
 		i++;
 	}

@@ -6,7 +6,7 @@
 #    By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/29 11:17:15 by dabdulka          #+#    #+#              #
-#    Updated: 2025/10/23 20:21:28 by dabdulka         ###   ########.fr        #
+#    Updated: 2025/10/29 18:04:51 by dabdulka         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ CFLAGS      = -Wall -Wextra -Werror
 LFLAGS		= -lXext -lX11 -lmlx
 
 SRC         = src/read_map.c src/rect_map.c src/main.c src/flood_fill.c \
-				src/create_graphic.c
+				src/cleanup.c src/game_start.c src/input.c src/map_utils.c \
+				src/render.c
 OBJ         = $(SRC:.c=.o)
 
 FT_PRINTF_DIR = include/ft_printf

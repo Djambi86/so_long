@@ -6,7 +6,7 @@
 /*   By: dabdulka <dabdulka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 16:53:14 by dabdulka          #+#    #+#             */
-/*   Updated: 2025/10/23 19:25:02 by dabdulka         ###   ########.fr       */
+/*   Updated: 2025/10/29 18:19:00 by dabdulka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ int	main(int argc, char **argv)
 		return (0);
 	rect_map(&map);
 	close(map.fd);
-	create_graphic(&game);
-	free(map.string);
+	map_finalize_dims_and_player(&map, &game.px, &game.py);
+	game_start(&game, &map);
 }
